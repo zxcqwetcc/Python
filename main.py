@@ -131,12 +131,12 @@ while user_number != snumber1:
     trys2 += 1 
     user_number = int(input(f"{trys2}-я попытка: "))
 
-if user_number > snumber1:
-    print("Много")
-elif user_number < snumber1:
-    print("Мало")
-else:
-    print(f"Ты правильно угадал, за {trys2} попыток")
+    if user_number > snumber1:
+        print("Много")
+    elif user_number < snumber1:
+        print("Мало")
+    else:
+        print(f"Ты правильно угадал, за {trys2} попыток")
 
 print("= 2 Раунд =")
 snumber2 = int(input("2 игрок загадайте число от 1 до 101: "))
@@ -149,12 +149,12 @@ while user_number != snumber2:
     trys1 += 1
     user_number = int(input(f"{trys1}-я попытка: "))
 
-if user_number > snumber2:
-    print("Много")
-elif user_number < snumber2:
-    print("Мало")
-else:
-    print(f"Ты правильно угадал, за {trys1} попыток:")
+    if user_number > snumber2:
+        print("Много")
+    elif user_number < snumber2:
+        print("Мало")
+    else:
+        print(f"Ты правильно угадал, за {trys1} попыток:")
 
 print("\nРезультаты:")
 print(f"Игрок 1 угадал за {trys1} попыток.")
