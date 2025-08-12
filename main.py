@@ -120,49 +120,89 @@
 #     else:
 #         print("Ты угадал правильно, я загадал{snumber}, ты угадал за {try_count} попыток")
 
-print("= 1 Раунд =")
-snumber1 = int(input("1 игрок загадайте  число от 1 до 101: "))
-print("\n * 50")
-print("2 игрок угадайте загаданное число: ")
-user_number = 0 
-trys2 = 0
+# print("= 1 Раунд =")
+# snumber1 = int(input("1 игрок загадайте  число от 1 до 101: "))
+# print("\n * 50")
+# print("2 игрок угадайте загаданное число: ")
+# user_number = 0 
+# trys2 = 0
 
-while user_number != snumber1:
-    trys2 += 1 
-    user_number = int(input(f"{trys2}-я попытка: "))
+# while user_number != snumber1:
+#     trys2 += 1 
+#     user_number = int(input(f"{trys2}-я попытка: "))
 
-    if user_number > snumber1:
-        print("Много")
-    elif user_number < snumber1:
-        print("Мало")
+#     if user_number > snumber1:
+#         print("Много")
+#     elif user_number < snumber1:
+#         print("Мало")
+#     else:
+#         print(f"Ты правильно угадал, за {trys2} попыток")
+
+# print("= 2 Раунд =")
+# snumber2 = int(input("2 игрок загадайте число от 1 до 101: "))
+# print("\n * 50")
+# print("1 игрок угадайте загаданное число: ")
+# user_number = 0 
+# trys1 = 0
+
+# while user_number != snumber2:
+#     trys1 += 1
+#     user_number = int(input(f"{trys1}-я попытка: "))
+
+#     if user_number > snumber2:
+#         print("Много")
+#     elif user_number < snumber2:
+#         print("Мало")
+#     else:
+#         print(f"Ты правильно угадал, за {trys1} попыток:")
+
+# print("\nРезультаты:")
+# print(f"Игрок 1 угадал за {trys1} попыток.")
+# print(f"Игрок 2 угадал за {trys2} попыток.")
+
+# if trys1 < trys2:
+#     print("Победил 1 игрок")
+# elif trys1 > trys2:
+#     print("Победил 2 игрок")
+# else:
+#     print("Ничья")
+def play_round(zagadyvaet, ugadyvaet):
+    snumber = int(input(f"{zagadyvaet} игрок, загадайте число от 1 до 101: "))
+    print("\n" * 50)
+    guess = 0
+    attempts = 0
+    print(int(input(f"{ugadyvaet} угадывает число {zagadyvaet}- го игрока: ")))
+
+
+    while guess != snumber:
+        attempts += 1
+        guess = int(input(f"{attempts}-я попытка: "))
+        if guess > snumber:
+            print("Много")
+        elif guess < snumber:
+            print("Мало")
+        else:
+            print(f"Правильно! Угадал за {attempts} попыток.")
+    return attempts
+
+def main():
+    print("!!! 1 раунд !!!")
+    trys2 = play_round(1, 2)
+
+    print("\n !!! 2 раунд !!!")
+    trys1 = play_round(2, 1)
+
+    print("\n=== Результаты ===")
+    print(f"Игрок 1 угадал за {trys1} попыток")
+    print(f"Игрок 2 угадал за {trys2} попыток")
+
+    if trys1 < trys2:
+        print("Победил 1 игрок!")
+    elif trys1 > trys2:
+        print("Победил 2 игрок!")
     else:
-        print(f"Ты правильно угадал, за {trys2} попыток")
+        print("Ничья!")
 
-print("= 2 Раунд =")
-snumber2 = int(input("2 игрок загадайте число от 1 до 101: "))
-print("\n * 50")
-print("1 игрок угадайте загаданное число: ")
-user_number = 0 
-trys1 = 0
 
-while user_number != snumber2:
-    trys1 += 1
-    user_number = int(input(f"{trys1}-я попытка: "))
-
-    if user_number > snumber2:
-        print("Много")
-    elif user_number < snumber2:
-        print("Мало")
-    else:
-        print(f"Ты правильно угадал, за {trys1} попыток:")
-
-print("\nРезультаты:")
-print(f"Игрок 1 угадал за {trys1} попыток.")
-print(f"Игрок 2 угадал за {trys2} попыток.")
-
-if trys1 < trys2:
-    print("Победил 1 игрок")
-elif trys1 > trys2:
-    print("Победил 2 игрок")
-else:
-    print("Ничья")
+if __name__ == "__main__":
+    main()
