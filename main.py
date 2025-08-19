@@ -168,37 +168,55 @@
 #     print("Ничья")
 
 
-def play_round(player1, player2):
-    snumber = int(input(f"Игрок {player1} загадайте любое число, игрок {player2} отгодайте загаданное число: ")) 
-    print("\n * 50")
-    players_num = 0
-    attempts = 0
-    while players_num != snumber:
-        attempts += 1
-        players_num = int(input(f"{attempts} -я попытка: "))
-        if players_num > snumber:
-            print("Много")
-        elif players_num < snumber:
-            print("Мало")
-        else:
-            print(f"Игрок {player2} угадал число {snumber} за {attempts} попыток.")
-            return attempts
+# def play_round(player1, player2):
+#     snumber = int(input(f"Игрок {player1} загадайте любое число, игрок {player2} отгодайте загаданное число: ")) 
+#     print("\n * 50")
+#     players_num = 0
+#     attempts = 0
+#     while players_num != snumber:
+#         attempts += 1
+#         players_num = int(input(f"{attempts} -я попытка: "))
+#         if players_num > snumber:
+#             print("Много")
+#         elif players_num < snumber:
+#             print("Мало")
+#         else:
+#             print(f"Игрок {player2} угадал число {snumber} за {attempts} попыток.")
+#             return attempts
         
 
-def main():
-    print("= 1 Раунд =")
-    attempts1 = play_round(1, 2)
-    print("= 2 Раунд =")
-    attempts2 = play_round(2, 1)
+# def main():
+#     print("= 1 Раунд =")
+#     attempts1 = play_round(1, 2)
+#     print("= 2 Раунд =")
+#     attempts2 = play_round(2, 1)
 
-    print("\nРезультаты:")
-    print(f"Игрок 1 угадал за {attempts1} попыток.")
-    print(f"Игрок 2 угадал за {attempts2} попыток.")
-    if attempts1 < attempts2:
-        print("Победил 1 игрок")
-    elif attempts1 > attempts2:
-        print("Победил 2 игрок")
+#     print("\nРезультаты:")
+#     print(f"Игрок 1 угадал за {attempts1} попыток.")
+#     print(f"Игрок 2 угадал за {attempts2} попыток.")
+#     if attempts1 < attempts2:
+#         print("Победил 1 игрок")
+#     elif attempts1 > attempts2:
+#         print("Победил 2 игрок")
+#     else:
+#         print("Ничья")
+# if __name__ == "__main__":
+#     main()
+board = [["_", "_", "_"],
+         ["_", "_", "_"],
+         ["_", "_", "_"]]
+
+def print_board(board):
+    for row in board:
+        print(" | ".join(row))
+
+def make_move(board, row, col, symbol):
+    if board[row][col]== "_": 
+        board[row][col] =symbol
     else:
-        print("Ничья")
-if __name__ == "__main__":
-    main()
+        print("Клетка уэе занята!")
+        
+make_move(board, 0, 0, "X")
+make_move(board, 0, 1, "X")
+make_move(board, 0, 2, "X")
+print_board(board)
